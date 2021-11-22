@@ -1,7 +1,6 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    //header('Access-Control-Allow-Origin: http://127.0.0.1:5500');
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
     header('Access-Control-Allow-Headers: token, Content-Type');
@@ -9,12 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Content-Length: 0');
     header('Content-Type: text/plain');
     die();
-  }
-//header('Access-Control-Allow-Origin: *');  
+  } 
     header('Content-Type: application/json');
 
-    require_once("../config/conexion.php");
-    require_once("../models/Socios2.php");
+    require_once("../../config/conexion.php");
+    require_once("../../Socios/models/Socios2.php");
     $socios = new Socios();
 
     $body = json_decode(file_get_contents("php://input"), true);
